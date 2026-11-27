@@ -7,6 +7,8 @@ const PROFILE = {
 };
 
 const ROLES = [
+  "design AI workflows that replace manual work.",
+  "cut manual effort by 90% with automation.",
   "automate the boring parts with AI.",
   "refactor legacy Java with AI tools.",
   "turn flaky tests into stable pipelines.",
@@ -15,7 +17,7 @@ const ROLES = [
 ];
 
 const SKILLS = {
-  "AI & Automation": ["AI-assisted Development", "AI Code Refactoring", "AI-assisted Debugging", "Test Automation", "CI/CD Pipelines", "Salesforce Flows", "Docker"],
+  "AI & Automation": ["AI Workflow Architecture", "Process Automation", "AI Research", "AI-assisted Development", "AI Code Refactoring", "AI-assisted Debugging", "Test Automation", "CI/CD Pipelines", "Salesforce Flows", "Docker"],
   "Languages & DB": ["Java", "C", "C++", "JavaScript", "SQL", "MySQL", "MongoDB"],
   "Backend & Web": ["Spring Boot", "JDBC", "Servlets", "JSP", "REST APIs", "HTTP/HTTPS", "SaaS"],
   "Frontend": ["React.js", "Bootstrap", "Tailwind CSS", "HTML", "CSS"],
@@ -224,16 +226,18 @@ function termPrint(html, cls = "") {
 }
 
 const INTENTS = [
+  { keys: ["coscale", "co scale", "current", "now", "present", "architect", "research", "lead", "workflow"],
+    answer: "Nishant is currently the AI Workflow Architect & Research Lead at CoScale Global (since Nov 2026). He designs and builds end-to-end AI workflows that automate processes the team used to do by hand, which has cut manual effort on those processes by 90%. He also leads research into new AI tools and techniques and turns the most promising ideas into working automations." },
   { keys: ["ai", "a.i", "artificial", "automat", "copilot", "chatgpt", "gpt", "llm", "claude", "gemini", "prompt", "tool"],
-    answer: "Nishant works AI-first. At Raja Software Labs he used AI-assisted development tools for code analysis, refactoring and boilerplate while migrating 40 legacy Java modules to Spring Boot for Google Home. That cut manual effort per module by 30%. He also used AI tools to speed up coding and debugging on the Atman Foundation Android app. He reviews and tests everything the AI produces before it ships." },
+    answer: "AI is the center of Nishant's work. As AI Workflow Architect & Research Lead at CoScale Global, he automates manual processes with AI workflows and has cut manual effort on them by 90%. Before that, at Raja Software Labs, he used AI-assisted development tools for code analysis, refactoring and boilerplate while migrating 40 legacy Java modules to Spring Boot for Google Home. That cut manual effort per module by 30%. He also used AI tools to speed up coding and debugging on the Atman Foundation Android app. He reviews and tests everything the AI produces before it ships." },
   { keys: ["why hire", "hire", "strength", "best", "good fit", "stand out", "unique", "value"],
-    answer: "Three reasons: (1) he ships faster by handing repetitive work to AI and automation, with 30% less manual effort per module; (2) he cares about quality, with 90% defect-free production fixes and 90% test stability; (3) he has real experience modernizing a large codebase, migrating 40 legacy Java modules to Spring Boot for Google Home." },
+    answer: "Three reasons: (1) he turns manual work into AI workflows. At CoScale Global he cut manual effort by 90%, and at Raja Software Labs AI tools cut his effort per module by 30%; (2) he cares about quality, with 90% defect-free production fixes and 90% test stability; (3) he combines AI research leadership with solid engineering, including migrating 40 legacy Java modules to Spring Boot for Google Home." },
   { keys: ["test", "testing", "flaky", "qa", "quality", "stability", "reliab"],
     answer: "He analyzed and fixed flaky test cases in the automation suite at Raja Software Labs. That improved test reliability by 30% and reached 90% test stability, which kept releases consistent." },
   { keys: ["debug", "bug", "root cause", "rca", "triage", "log", "issue", "fix"],
     answer: "Debugging is one of his strengths. He does root cause analysis and triage of complex Java issues using logs and error messages, and 90% of his production fixes were defect-free. He also uses AI help to find root causes faster." },
   { keys: ["experience", "work", "job", "company", "raja", "google", "career", "role", "intern", "atman"],
-    answer: "• Software Engineer @ Raja Software Labs, Bengaluru (Feb 2026 – Sep 2026): migrated 40 legacy Java modules to Spring Boot for Google Home, made fixes that were 90% defect-free, brought tests to 90% stability, and cut manual effort 30% with AI tools.\n• Salesforce Developer Intern @ Atman Cloud Consultants, Pune (Jan 2025 – May 2025): earned 250+ Trailhead badges, built an Android app and the Sample Management System." },
+    answer: "• AI Workflow Architect & Research Lead @ CoScale Global (Nov 2026 – Present): automates manual processes with AI workflows, cutting manual effort by 90%, and leads AI research.\n• Software Engineer @ Raja Software Labs, Bengaluru (Feb 2026 – Sep 2026): migrated 40 legacy Java modules to Spring Boot for Google Home, made fixes that were 90% defect-free, brought tests to 90% stability, and cut manual effort 30% with AI tools.\n• Salesforce Developer Intern @ Atman Cloud Consultants, Pune (Jan 2025 – May 2025): earned 250+ Trailhead badges, built an Android app and the Sample Management System." },
   { keys: ["salesforce", "apex", "soql", "lwc", "trailhead", "crm", "flow"],
     answer: "He was a Salesforce Developer Intern at Atman Cloud Consultants and earned 250+ Trailhead badges. He has worked with Sales Cloud, Service Cloud, Apex, SOQL, LWC, and Flows, which is Salesforce's automation tool." },
   { keys: ["java", "spring", "backend", "api", "rest", "jdbc", "servlet"],
@@ -257,7 +261,7 @@ const INTENTS = [
   { keys: ["hi", "hello", "hey", "yo", "namaste"],
     answer: "Hi! 👋 I'm Nishant's AI assistant. Ask me about his AI workflow, experience, projects, skills or how to contact him." },
   { keys: ["who", "about", "yourself", "intro", "summary"],
-    answer: "Nishant Vij is a Software Engineer from Noida, India who works AI-first. He builds with Java, Spring Boot, Salesforce and React, and uses AI tools and automation to deliver faster without losing quality." },
+    answer: "Nishant Vij is the AI Workflow Architect & Research Lead at CoScale Global, based in Noida, India. He automates manual processes with AI, cutting manual effort by 90%, and has a software engineering background in Java, Spring Boot, Salesforce and React." },
 ];
 
 function answerFor(q) {
@@ -321,7 +325,7 @@ function run(raw) {
   streamAnswer(ans, it.extra && it.extra());
 }
 
-const SUGGESTIONS = ["How does Nishant use AI?", "Why should we hire him?", "What did he build at Google Home?", "Tell me about his projects", "What's his tech stack?", "How can I contact him?"];
+const SUGGESTIONS = ["What does he do at CoScale Global?", "How does Nishant use AI?", "Why should we hire him?", "What did he build at Google Home?", "Tell me about his projects", "What's his tech stack?", "How can I contact him?"];
 SUGGESTIONS.forEach(s => {
   const b = document.createElement("button");
   b.textContent = s;
