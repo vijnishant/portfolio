@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nishant Vij — Software Engineer</title>
-  <meta name="description" content="Nishant Vij — Software Engineer working with Java, Spring Boot, Salesforce and React." />
+  <title>Nishant Vij — AI-driven Software Engineer</title>
+  <meta name="description" content="Nishant Vij — Software Engineer who uses AI and automation to ship Java, Spring Boot, Salesforce and React work faster." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -18,10 +18,11 @@
     <nav>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
+        <li><a href="#ai">AI Workflow</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#terminal">Terminal</a></li>
+        <li><a href="#assistant" class="nav-ai">✦ Ask my AI</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -36,13 +37,15 @@
     <section class="hero" id="home">
       <canvas id="bg" aria-hidden="true"></canvas>
       <div class="hero-inner">
+        <p class="ai-badge mono"><span class="pulse"></span>AI-assisted engineer · automation-first</p>
         <p class="mono kicker">Hi, I'm</p>
         <h1>Nishant Vij</h1>
         <h2 class="typed-line">I <span id="typed" class="accent"></span><span class="caret">|</span></h2>
-        <p class="lead">Software Engineer from Noida, India — building with Java, Spring Boot, Salesforce and React. I enjoy turning legacy code into clean systems and hunting down the bugs nobody else wants.</p>
+        <p class="lead">Software Engineer from Noida, India. I build with Java, Spring Boot, Salesforce and React, and I use AI tools and automation to get the repetitive work done faster, so I can spend my time on design, debugging and shipping.</p>
         <div class="cta">
-          <a href="#projects" class="btn primary">See my work</a>
-          <a href="Nishant_Vij_Resume.pdf" class="btn" download>Download résumé</a>
+          <a href="#assistant" class="btn primary">✦ Ask my AI assistant</a>
+          <a href="#ai" class="btn">See my AI workflow</a>
+          <a href="Nishant_Vij_Resume.pdf" class="btn ghost" download>Download résumé</a>
         </div>
       </div>
       <a href="#about" class="scroll-hint" aria-label="Scroll down">↓</a>
@@ -53,22 +56,54 @@
       <h3 class="section-title"><span class="mono">01.</span> About me</h3>
       <div class="about-grid reveal">
         <div>
-          <p>I'm a Software Engineer with hands-on experience in <strong>Java, C, C++ and Spring Boot</strong>, skilled in software design, development, debugging and issue triage for complex applications.</p>
-          <p>I've worked with test automation, REST APIs, SQL and NoSQL databases, and Git-based workflows. I like reading requirements closely, writing clear technical docs, and working with cross-functional teams to ship on schedule.</p>
-          <p>Most recently at <strong>Raja Software Labs</strong>, I migrated legacy Java modules to Spring Boot for <strong>Google Home</strong>.</p>
+          <p>I'm a Software Engineer with hands-on experience in <strong>Java, C, C++ and Spring Boot</strong>. I work <strong>AI-first</strong>: if a task is repetitive, I try to hand it to an AI tool or an automated pipeline before I do it by hand.</p>
+          <p>At <strong>Raja Software Labs</strong> I migrated <strong>40 legacy Java modules</strong> to Spring Boot for <strong>Google Home</strong>, using AI-assisted tools for code analysis, refactoring and boilerplate. That cut <strong>manual effort per module by 30%</strong>. I also stabilized the test automation suite to <strong>90% test stability</strong>.</p>
+          <p>I use AI to go faster, and I still own the quality myself: I review what the AI writes, test it and debug it.</p>
         </div>
         <div class="stats">
           <div class="stat"><span class="num" data-count="40">0</span><span class="label">legacy Java modules migrated to Spring Boot</span></div>
           <div class="stat"><span class="num" data-count="90" data-suffix="%">0</span><span class="label">defect-free production fixes</span></div>
-          <div class="stat"><span class="num" data-count="30" data-suffix="%">0</span><span class="label">better test reliability</span></div>
-          <div class="stat"><span class="num" data-count="250" data-suffix="+">0</span><span class="label">Salesforce Trailhead badges</span></div>
+          <div class="stat ai"><span class="num" data-count="30" data-suffix="%">0</span><span class="label">less manual effort per module with AI tools</span></div>
+          <div class="stat"><span class="num" data-count="90" data-suffix="%">0</span><span class="label">test stability after fixing the automation suite</span></div>
         </div>
+      </div>
+    </section>
+
+    <!-- AI WORKFLOW -->
+    <section id="ai" class="section">
+      <h3 class="section-title"><span class="mono">02.</span> My AI-driven workflow</h3>
+      <p class="hint reveal">This is how I migrated legacy modules at Raja Software Labs. Press <b>Run pipeline</b> to see it step by step.</p>
+      <div class="pipeline reveal">
+        <div class="pipe-nodes" id="pipeNodes">
+          <div class="pnode"><span class="pico">📦</span><b>Legacy module</b><small>old Java code</small></div>
+          <div class="pnode"><span class="pico">🧠</span><b>AI code analysis</b><small>map dependencies</small></div>
+          <div class="pnode"><span class="pico">⚡</span><b>AI-assisted refactor</b><small>Spring Boot + boilerplate</small></div>
+          <div class="pnode"><span class="pico">🧪</span><b>Automated tests</b><small>catch flaky tests</small></div>
+          <div class="pnode"><span class="pico">🚀</span><b>Review &amp; ship</b><small>checked by me</small></div>
+        </div>
+        <div class="pipe-bottom">
+          <div class="pipe-log mono" id="pipeLog"><div class="dim">$ pipeline ready. Waiting for a run…</div></div>
+          <div class="pipe-side">
+            <button class="btn primary" id="runPipe">▶ Run pipeline</button>
+            <div class="pipe-meter">
+              <span class="mono">Modules migrated</span>
+              <div class="bar"><i id="pipeBar"></i></div>
+              <span class="mono accent" id="pipeCount">0 / 40</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-cards">
+        <div class="ai-card reveal"><span>🔍</span><h4>Code analysis</h4><p>I use AI to read unfamiliar legacy code, trace dependencies and explain old logic before I change it.</p></div>
+        <div class="ai-card reveal"><span>♻️</span><h4>Refactoring &amp; boilerplate</h4><p>I hand repetitive migration code to AI tools and review every change, which cut manual effort per module by 30%.</p></div>
+        <div class="ai-card reveal"><span>🐞</span><h4>Debugging &amp; triage</h4><p>I combine log analysis with AI help to find root causes faster. 90% of my production fixes were defect-free.</p></div>
+        <div class="ai-card reveal"><span>🤖</span><h4>Test automation</h4><p>I found and fixed flaky tests in the automation suite and got it to 90% test stability, so releases stay predictable.</p></div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="section">
-      <h3 class="section-title"><span class="mono">02.</span> Where I've worked</h3>
+      <h3 class="section-title"><span class="mono">03.</span> Where I've worked</h3>
       <div class="tabs reveal">
         <div class="tab-list" role="tablist">
           <button role="tab" class="tab active" data-tab="rsl">Raja Software Labs</button>
@@ -83,18 +118,18 @@
             <li>Migrated <b>40 legacy Java modules</b> to a <b>Spring Boot</b> architecture for <b>Google Home</b>, improving maintainability, readability and system uptime.</li>
             <li>Did root cause analysis, debugging and triage of complex Java issues using logs and error messages — <b>90% defect-free</b> production fixes following OOP principles.</li>
             <li>Analyzed and fixed flaky tests in the automation suite, improving <b>test reliability by 30%</b> and reaching <b>90% test stability</b>.</li>
-            <li>Used AI-assisted development tools for code analysis, refactoring and boilerplate, cutting <b>manual effort per module by 30%</b>.</li>
+            <li class="ai-li">Used <b>AI-assisted development tools</b> for code analysis, refactoring and boilerplate, cutting <b>manual effort per module by 30%</b>.</li>
             <li>Worked with <b>6 cross-functional teammates</b> in Agile to integrate and deliver modules on schedule, presenting resolutions to stakeholders.</li>
           </ul>
-          <div class="chips"><span>Java</span><span>Spring Boot</span><span>Debugging</span><span>Test Automation</span><span>Agile</span></div>
+          <div class="chips"><span>AI-assisted Dev</span><span>Java</span><span>Spring Boot</span><span>Debugging</span><span>Test Automation</span><span>Agile</span></div>
         </div>
 
         <div class="tab-panel" id="atman" role="tabpanel">
           <h4>Salesforce Developer Intern <span class="accent">@ Atman Cloud Consultants</span></h4>
           <p class="meta mono">Jan 2025 – May 2025 · Pune, India</p>
           <ul class="bullets">
-            <li>Earned <b>250+ Salesforce Trailhead badges</b>, building hands-on skills in Salesforce CRM, Apex, Lightning Components, SOQL and Flows.</li>
-            <li>Developed the <b>Atman Foundation Android app</b> with Java, Android Studio, Firebase and Git — a working prototype delivered on schedule.</li>
+            <li>Earned <b>250+ Salesforce Trailhead badges</b>, building hands-on skills in Salesforce CRM, Apex, Lightning Components, SOQL and <b>Flows</b> (Salesforce's automation tool).</li>
+            <li class="ai-li">Developed the <b>Atman Foundation Android app</b> with Java, Android Studio, Firebase and Git, using <b>AI-assisted tools</b> to speed up coding and debugging and deliver a working prototype on schedule.</li>
             <li>Designed and built the <b>Sample Management System</b> (HTML, CSS, JavaScript), wrote the technical docs and presented it to the CEO to win project approval.</li>
           </ul>
           <div class="chips"><span>Salesforce</span><span>Apex</span><span>Android</span><span>Firebase</span><span>JavaScript</span></div>
@@ -115,7 +150,7 @@
 
     <!-- SKILLS -->
     <section id="skills" class="section">
-      <h3 class="section-title"><span class="mono">03.</span> Skills</h3>
+      <h3 class="section-title"><span class="mono">04.</span> Skills</h3>
       <p class="hint reveal">Pick a category to filter.</p>
       <div class="filters reveal" id="skillFilters"></div>
       <div class="skill-cloud reveal" id="skillCloud"></div>
@@ -123,7 +158,7 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <h3 class="section-title"><span class="mono">04.</span> Things I've built</h3>
+      <h3 class="section-title"><span class="mono">05.</span> Things I've built</h3>
       <div class="projects">
         <article class="project featured reveal" tabindex="0">
           <div class="project-head">
@@ -161,17 +196,18 @@
       </div>
     </section>
 
-    <!-- TERMINAL -->
-    <section id="terminal" class="section">
-      <h3 class="section-title"><span class="mono">05.</span> Ask the terminal</h3>
-      <p class="hint reveal">Type <code>help</code> to see what you can ask.</p>
+    <!-- AI ASSISTANT -->
+    <section id="assistant" class="section">
+      <h3 class="section-title"><span class="mono">06.</span> Ask my AI assistant</h3>
+      <p class="hint reveal">Ask about my work in plain English. The assistant runs in your browser and answers only from my résumé. You can also type commands like <code>help</code>.</p>
+      <div class="suggest reveal" id="suggest"></div>
       <div class="term reveal" id="term">
-        <div class="term-bar"><i></i><i></i><i></i><span class="mono">nishant@portfolio:~</span></div>
+        <div class="term-bar"><i></i><i></i><i></i><span class="mono">nishant-ai · trained on my résumé</span><em class="status mono"><span class="pulse"></span>online</em></div>
         <div class="term-body mono" id="termBody">
           <div class="term-out" id="termOut"></div>
           <form id="termForm" class="term-line" autocomplete="off">
-            <label for="termInput" class="prompt">$</label>
-            <input id="termInput" type="text" spellcheck="false" aria-label="Terminal command" />
+            <label for="termInput" class="prompt">›</label>
+            <input id="termInput" type="text" spellcheck="false" placeholder="e.g. How does Nishant use AI?" aria-label="Ask a question or type a command" />
           </form>
         </div>
       </div>
@@ -179,7 +215,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section contact">
-      <h3 class="section-title center"><span class="mono">06.</span> Get in touch</h3>
+      <h3 class="section-title center"><span class="mono">07.</span> Get in touch</h3>
       <p class="reveal">I'm open to software engineering roles and interesting projects. My inbox is always open.</p>
       <div class="contact-actions reveal">
         <a class="btn primary" id="mailBtn" href="#">Say hello</a>
@@ -196,6 +232,6 @@
   <footer class="footer mono">Built by Nishant Vij · © <span id="year"></span></footer>
   <div class="toast" id="toast" role="status"></div>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

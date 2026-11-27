@@ -7,14 +7,15 @@ const PROFILE = {
 };
 
 const ROLES = [
+  "automate the boring parts with AI.",
+  "refactor legacy Java with AI tools.",
+  "turn flaky tests into stable pipelines.",
   "build Spring Boot backends.",
-  "migrate legacy Java to clean code.",
-  "debug what others can't.",
-  "develop on Salesforce.",
-  "ship React frontends.",
+  "ship faster with AI-assisted dev.",
 ];
 
 const SKILLS = {
+  "AI & Automation": ["AI-assisted Development", "AI Code Refactoring", "AI-assisted Debugging", "Test Automation", "CI/CD Pipelines", "Salesforce Flows", "Docker"],
   "Languages & DB": ["Java", "C", "C++", "JavaScript", "SQL", "MySQL", "MongoDB"],
   "Backend & Web": ["Spring Boot", "JDBC", "Servlets", "JSP", "REST APIs", "HTTP/HTTPS", "SaaS"],
   "Frontend": ["React.js", "Bootstrap", "Tailwind CSS", "HTML", "CSS"],
@@ -134,7 +135,7 @@ const filters = $("#skillFilters"), cloud = $("#skillCloud");
 });
 Object.entries(SKILLS).forEach(([cat, list]) => list.forEach(name => {
   const s = document.createElement("span");
-  s.className = "skill";
+  s.className = "skill" + (cat === "AI & Automation" ? " ai-skill" : "");
   s.dataset.cat = cat;
   s.textContent = name;
   s.title = cat;
@@ -168,68 +169,175 @@ $("#copyEmail").addEventListener("click", async () => {
   catch { toast(PROFILE.email); }
 });
 
-/* ===== Terminal ===== */
+/* ===== AI pipeline demo ===== */
+(function pipeline() {
+  const nodes = $$("#pipeNodes .pnode"), log = $("#pipeLog"), btn = $("#runPipe");
+  const MODULES = ["DeviceRegistry", "HomeGraphSync", "AutomationRules", "UserPrefsService", "NotificationHub", "SceneScheduler", "AuthTokenStore", "TelemetryLogger"];
+  const STEPS = [
+    [["dim", "→ loading legacy module {m}.java"], ["warn", "  found tight coupling, no DI, 1 flaky test"]],
+    [["ai", "✦ AI: mapping class dependencies…"], ["ai", "✦ AI: summarized old logic into a migration plan"]],
+    [["ai", "✦ AI: generated Spring Boot service + boilerplate"], ["dim", "  I reviewed and adjusted the generated code"]],
+    [["dim", "→ running automated test suite…"], ["ok", "  flaky test fixed · all tests passing"]],
+    [["ok", "✓ {m} migrated to Spring Boot · ~30% less manual effort"]],
+  ];
+  let migrated = 0, running = false;
+  const sleep = ms => new Promise(r => setTimeout(r, reduceMotion ? 0 : ms));
+  const line = (cls, text) => {
+    const d = document.createElement("div");
+    d.className = cls; d.textContent = text;
+    log.appendChild(d); log.scrollTop = log.scrollHeight;
+  };
+  btn.addEventListener("click", async () => {
+    if (running) return;
+    running = true; btn.disabled = true; btn.textContent = "⏳ Running…";
+    const m = MODULES[migrated % MODULES.length];
+    nodes.forEach(n => n.classList.remove("active", "done"));
+    line("dim", `$ run-migration --module ${m}`);
+    for (let i = 0; i < nodes.length; i++) {
+      nodes[i].classList.add("active");
+      for (const [cls, text] of STEPS[i]) { await sleep(450); line(cls, text.replace("{m}", m)); }
+      await sleep(300);
+      nodes[i].classList.replace("active", "done");
+    }
+    migrated = Math.min(40, migrated === 0 ? 5 : migrated + 5);
+    $("#pipeCount").textContent = `${migrated} / 40`;
+    $("#pipeBar").style.width = `${(migrated / 40) * 100}%`;
+    if (migrated >= 40) line("ok", "🎉 All 40 modules migrated. This matches my real work on the Google Home project.");
+    btn.textContent = migrated >= 40 ? "↺ Run again" : "▶ Run next batch";
+    if (migrated >= 40) migrated = 0;
+    btn.disabled = false; running = false;
+  });
+})();
+
+/* ===== AI assistant (runs in the browser, answers from the résumé) ===== */
 const out = $("#termOut"), input = $("#termInput"), body = $("#termBody");
-const cmdHistory = []; let hIdx = 0;
+const cmdHistory = []; let hIdx = 0, busy = false;
 const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const link = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
 function termPrint(html, cls = "") {
   const d = document.createElement("div");
   if (cls) d.className = cls;
   d.innerHTML = html;
   out.appendChild(d);
   body.scrollTop = body.scrollHeight;
+  return d;
 }
+
+const INTENTS = [
+  { keys: ["ai", "a.i", "artificial", "automat", "copilot", "chatgpt", "gpt", "llm", "claude", "gemini", "prompt", "tool"],
+    answer: "Nishant works AI-first. At Raja Software Labs he used AI-assisted development tools for code analysis, refactoring and boilerplate while migrating 40 legacy Java modules to Spring Boot for Google Home. That cut manual effort per module by 30%. He also used AI tools to speed up coding and debugging on the Atman Foundation Android app. He reviews and tests everything the AI produces before it ships." },
+  { keys: ["why hire", "hire", "strength", "best", "good fit", "stand out", "unique", "value"],
+    answer: "Three reasons: (1) he ships faster by handing repetitive work to AI and automation, with 30% less manual effort per module; (2) he cares about quality, with 90% defect-free production fixes and 90% test stability; (3) he has real experience modernizing a large codebase, migrating 40 legacy Java modules to Spring Boot for Google Home." },
+  { keys: ["test", "testing", "flaky", "qa", "quality", "stability", "reliab"],
+    answer: "He analyzed and fixed flaky test cases in the automation suite at Raja Software Labs. That improved test reliability by 30% and reached 90% test stability, which kept releases consistent." },
+  { keys: ["debug", "bug", "root cause", "rca", "triage", "log", "issue", "fix"],
+    answer: "Debugging is one of his strengths. He does root cause analysis and triage of complex Java issues using logs and error messages, and 90% of his production fixes were defect-free. He also uses AI help to find root causes faster." },
+  { keys: ["experience", "work", "job", "company", "raja", "google", "career", "role", "intern", "atman"],
+    answer: "• Software Engineer @ Raja Software Labs, Bengaluru (Feb 2026 – Sep 2026): migrated 40 legacy Java modules to Spring Boot for Google Home, made fixes that were 90% defect-free, brought tests to 90% stability, and cut manual effort 30% with AI tools.\n• Salesforce Developer Intern @ Atman Cloud Consultants, Pune (Jan 2025 – May 2025): earned 250+ Trailhead badges, built an Android app and the Sample Management System." },
+  { keys: ["salesforce", "apex", "soql", "lwc", "trailhead", "crm", "flow"],
+    answer: "He was a Salesforce Developer Intern at Atman Cloud Consultants and earned 250+ Trailhead badges. He has worked with Sales Cloud, Service Cloud, Apex, SOQL, LWC, and Flows, which is Salesforce's automation tool." },
+  { keys: ["java", "spring", "backend", "api", "rest", "jdbc", "servlet"],
+    answer: "Backend is his core: Java, Spring Boot, JDBC, Servlets, JSP and REST APIs. He migrated 40 legacy Java modules to Spring Boot for Google Home and built the Spring Boot backend for WorkZoo." },
+  { keys: ["project", "built", "build", "workzoo", "portfolio", "app", "github"],
+    answer: "• WorkZoo: a freelancing marketplace. He built the Spring Boot backend with project posting, bidding, freelancer assignment and role-based access, using MongoDB and a React frontend.\n• Atman Foundation: an Android app built with Java and Firebase.\n• Sample Management System: a web app (HTML, CSS, JS) that the CEO approved.",
+    extra: () => `Code: ${link("https://github.com/Work-Zoo", "github.com/Work-Zoo")}` },
+  { keys: ["skill", "tech", "stack", "know", "language", "frontend", "react", "database", "sql", "mongo", "docker"],
+    answer: () => "Here's his stack:\n" + Object.entries(SKILLS).map(([k, v]) => `• ${k}: ${v.join(", ")}`).join("\n") },
+  { keys: ["educat", "degree", "college", "study", "cdac", "c-dac", "btech", "b.tech", "university", "cgpa"],
+    answer: "• PG Diploma in Advanced Computing (PG-DAC), C-DAC ACTS Bengaluru, 2025–2026, 74%\n• B.Tech in Computer Science & Engineering, Chandigarh Group of Colleges, Landran, 2021–2025, CGPA 7.75/10" },
+  { keys: ["contact", "email", "reach", "linkedin", "connect", "talk", "call"],
+    answer: "The best way to reach Nishant is by email or LinkedIn.",
+    extra: () => `email: ${link("mailto:" + PROFILE.email, PROFILE.email)}\nlinkedin: ${link(PROFILE.linkedin, "linkedin.com/in/nishant-vij")}\ngithub: ${link(PROFILE.github, "github.com/vijnishant")}` },
+  { keys: ["where", "location", "based", "live", "city", "relocat", "remote"],
+    answer: "He's based in Noida, Uttar Pradesh, India. For questions about location or remote work, it's best to ask him directly by email." },
+  { keys: ["available", "open to", "looking", "notice", "join"],
+    answer: "Yes, he's open to software engineering roles and interesting projects. Email him and he'll get back to you." },
+  { keys: ["team", "agile", "collab", "communicat", "stakeholder"],
+    answer: "He worked with 6 cross-functional teammates in Agile at Raja Software Labs, presented fixes to stakeholders and documented them clearly. As an intern, he presented the Sample Management System to the CEO and won project approval." },
+  { keys: ["hi", "hello", "hey", "yo", "namaste"],
+    answer: "Hi! 👋 I'm Nishant's AI assistant. Ask me about his AI workflow, experience, projects, skills or how to contact him." },
+  { keys: ["who", "about", "yourself", "intro", "summary"],
+    answer: "Nishant Vij is a Software Engineer from Noida, India who works AI-first. He builds with Java, Spring Boot, Salesforce and React, and uses AI tools and automation to deliver faster without losing quality." },
+];
+
+function answerFor(q) {
+  const text = " " + q.toLowerCase().replace(/[?!.,]/g, " ") + " ";
+  let best = null, bestScore = 0;
+  for (const it of INTENTS) {
+    let score = 0;
+    for (const k of it.keys) {
+      const hit = k.length <= 3 ? new RegExp(`\\b${k.replace(".", "\\.")}\\b`).test(text) : text.includes(k);
+      if (hit) score += k.length > 3 ? 2 : 1;
+    }
+    if (score > bestScore) { best = it; bestScore = score; }
+  }
+  return best;
+}
+
+async function streamAnswer(text, extraHtml) {
+  busy = true;
+  const thinking = termPrint("thinking", "thinking");
+  await new Promise(r => setTimeout(r, reduceMotion ? 0 : 500 + Math.random() * 400));
+  thinking.remove();
+  const el = termPrint("", "a");
+  const node = document.createTextNode("");
+  el.appendChild(node);
+  if (reduceMotion) node.textContent = text;
+  else {
+    for (let i = 0; i < text.length; i += 3) {
+      node.textContent = text.slice(0, i + 3);
+      body.scrollTop = body.scrollHeight;
+      await new Promise(r => setTimeout(r, 12));
+    }
+  }
+  if (extraHtml) el.insertAdjacentHTML("beforeend", "\n" + extraHtml);
+  body.scrollTop = body.scrollHeight;
+  busy = false;
+}
+
 const COMMANDS = {
-  help: () => `Available commands:
-  <span class="cmd">whoami</span>      short intro
-  <span class="cmd">experience</span>  where I've worked
-  <span class="cmd">skills</span>      tech I use
-  <span class="cmd">projects</span>    things I've built
-  <span class="cmd">education</span>   degrees
-  <span class="cmd">contact</span>     how to reach me
-  <span class="cmd">resume</span>      download my résumé
-  <span class="cmd">theme</span>       toggle light/dark
-  <span class="cmd">clear</span>       clear the screen`,
-  whoami: () => "Nishant Vij — Software Engineer (Java · Spring Boot · Salesforce · React), based in Noida, India.",
-  experience: () => `<b>Software Engineer</b> @ Raja Software Labs  (Feb 2026 – Sep 2026)
-  → Migrated 40 legacy Java modules to Spring Boot for Google Home
-  → 90% defect-free fixes · +30% test reliability
-<b>Salesforce Developer Intern</b> @ Atman Cloud Consultants  (Jan 2025 – May 2025)
-  → 250+ Trailhead badges · Android app · Sample Management System`,
-  skills: () => Object.entries(SKILLS).map(([k, v]) => `<span class="cmd">${k.padEnd(15)}</span> ${v.join(", ")}`).join("\n"),
-  projects: () => `<b>WorkZoo</b>            Freelancing marketplace — Spring Boot, React.js, MongoDB, RBAC
-<b>Atman Foundation</b>   Android app — Java, Firebase
-<b>Sample Mgmt System</b> Web app — HTML, CSS, JavaScript`,
-  education: () => `PG-DAC, C-DAC ACTS Bengaluru         2025–2026 · 74%
-B.Tech CSE, Chandigarh Group of Colleges  2021–2025 · CGPA 7.75`,
-  contact: () => `email     <a href="mailto:${PROFILE.email}">${PROFILE.email}</a>
-linkedin  <a href="${PROFILE.linkedin}" target="_blank" rel="noopener">${PROFILE.linkedin}</a>
-github    <a href="${PROFILE.github}" target="_blank" rel="noopener">${PROFILE.github}</a>`,
+  help: () => `You can ask questions in plain English, for example:
+  "How does Nishant use AI?"  "Why should we hire him?"  "What did he build?"
+Or use commands:
+  <span class="cmd">skills</span> · <span class="cmd">experience</span> · <span class="cmd">projects</span> · <span class="cmd">education</span> · <span class="cmd">contact</span>
+  <span class="cmd">resume</span> download résumé · <span class="cmd">theme</span> light/dark · <span class="cmd">clear</span> clear screen`,
   resume: () => { const a = document.createElement("a"); a.href = PROFILE.resume; a.download = ""; a.click(); return "Downloading résumé…"; },
   theme: () => { $("#themeToggle").click(); return `Theme set to ${root.dataset.theme}.`; },
   sudo: () => "Nice try. 😄 Permission denied.",
-  hire: () => `Great choice! Type <span class="cmd">contact</span> or email ${PROFILE.email}`,
   clear: () => { out.innerHTML = ""; return null; },
 };
+const ALIASES = { skills: "skills", experience: "experience", projects: "projects", education: "education", contact: "contact", whoami: "who are you", hire: "why hire him" };
+
 function run(raw) {
-  const cmd = raw.trim().toLowerCase();
-  termPrint(`<span class="cmd">$</span> ${esc(raw)}`);
-  if (!cmd) return;
-  cmdHistory.push(raw); hIdx = cmdHistory.length;
-  const fn = COMMANDS[cmd.split(/\s+/)[0]];
-  if (!fn) return termPrint(`command not found: ${esc(cmd)} — try <span class="cmd">help</span>`, "err");
-  const res = fn();
-  if (res) termPrint(res);
+  const q = raw.trim();
+  if (!q || busy) return;
+  termPrint(esc(q), "q");
+  cmdHistory.push(q); hIdx = cmdHistory.length;
+  const cmd = q.toLowerCase();
+  if (COMMANDS[cmd]) { const res = COMMANDS[cmd](); if (res) termPrint(res); return; }
+  const it = answerFor(ALIASES[cmd] || q);
+  if (!it) return streamAnswer("I'm not sure about that one. I only know what's on Nishant's résumé. Try asking about his AI workflow, experience, projects, skills, education, or how to contact him.");
+  const ans = typeof it.answer === "function" ? it.answer() : it.answer;
+  streamAnswer(ans, it.extra && it.extra());
 }
-termPrint("Welcome to nishant's portfolio shell.", "dim");
-termPrint(`Type <span class="cmd">help</span> to get started.`, "dim");
+
+const SUGGESTIONS = ["How does Nishant use AI?", "Why should we hire him?", "What did he build at Google Home?", "Tell me about his projects", "What's his tech stack?", "How can I contact him?"];
+SUGGESTIONS.forEach(s => {
+  const b = document.createElement("button");
+  b.textContent = s;
+  b.addEventListener("click", () => run(s));
+  $("#suggest").appendChild(b);
+});
+
+termPrint("nishant-ai v1.0 · answers come only from Nishant's résumé.", "dim");
+termPrint(`Ask a question or tap a suggestion above. Type <span class="cmd">help</span> for commands.`, "dim");
 $("#termForm").addEventListener("submit", e => { e.preventDefault(); run(input.value); input.value = ""; });
 input.addEventListener("keydown", e => {
   if (e.key === "ArrowUp" && hIdx > 0) { input.value = cmdHistory[--hIdx]; e.preventDefault(); }
   if (e.key === "ArrowDown") { hIdx = Math.min(hIdx + 1, cmdHistory.length); input.value = cmdHistory[hIdx] || ""; e.preventDefault(); }
   if (e.key === "Tab") {
     e.preventDefault();
-    const m = Object.keys(COMMANDS).filter(c => c.startsWith(input.value.toLowerCase()));
+    const m = [...Object.keys(COMMANDS), ...Object.keys(ALIASES)].filter(c => c.startsWith(input.value.toLowerCase()));
     if (m.length === 1) input.value = m[0];
   }
 });
