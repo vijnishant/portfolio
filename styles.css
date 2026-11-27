@@ -270,6 +270,28 @@ strong, b { color: var(--text); font-weight: 600; }
   .nav-actions { position: relative; z-index: 60; }
 }
 
+/* booking */
+.nav-book {
+  display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px; border-radius: 10px;
+  font-size: .85rem; font-weight: 600; white-space: nowrap; color: var(--bg); background: var(--accent);
+  transition: transform .2s, box-shadow .2s;
+}
+.nav-book:hover { transform: translateY(-1px); box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--accent) 70%, transparent); }
+@media (max-width: 480px) { .nav-book { padding: 0 11px; } .nav-book-text { display: none; } }
+.book-card {
+  display: flex; align-items: center; gap: 18px; text-align: left; margin: 30px auto 0; padding: 20px 22px;
+  border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--card)), var(--card)); box-shadow: var(--shadow);
+}
+.book-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0; }
+.book-info { flex: 1; }
+.book-info h4 { font-size: 1.05rem; }
+.book-meta { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: .76rem; color: var(--muted); }
+.book-btn { flex-shrink: 0; }
+.contact .or { margin: 26px 0 0; font-size: .78rem; color: var(--muted); }
+.contact .contact-actions { margin: 14px 0 30px; }
+@media (max-width: 560px) { .book-card { flex-direction: column; text-align: center; } .book-meta { justify-content: center; } .book-btn { width: 100%; text-align: center; } }
+
 /* education */
 .edu-timeline { position: relative; display: grid; gap: 22px; padding-left: 34px; }
 .edu-timeline::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--ai)); border-radius: 2px; }
