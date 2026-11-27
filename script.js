@@ -1,7 +1,7 @@
 /* ===== Edit your details here ===== */
 const PROFILE = {
   email: "vijnishant05@gmail.com",
-  linkedin: "https://www.linkedin.com/in/your-handle", // TODO: replace with your LinkedIn URL
+  linkedin: "https://www.linkedin.com/in/nishant-vij-5a4025229/",
   github: "https://github.com/vijnishant",
   resume: "Nishant_Vij_Resume.pdf",
 };

@@ -160,6 +160,9 @@ strong, b { color: var(--text); font-weight: 600; }
 .role-flow li::before { content: "→ "; color: var(--accent-2); }
 @keyframes slideIn { to { opacity: 1; transform: none; } }
 
+.project-link { display: inline-block; margin-top: 18px; font-size: .85rem; color: var(--accent-2); border-bottom: 1px dashed currentColor; }
+.project-link:hover { color: var(--accent); }
+
 /* terminal */
 .term { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); background: #070b14; }
 .term-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #121a2c; }
