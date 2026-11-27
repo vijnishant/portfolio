@@ -159,6 +159,12 @@ $$(".project").forEach(card => card.addEventListener("mousemove", e => {
   card.style.setProperty("--my", `${e.clientY - r.top}px`);
 }));
 
+/* ===== Background processes (hobby cards): tap to flip ===== */
+$$(".proc").forEach(card => card.addEventListener("click", () => {
+  const on = card.classList.toggle("flipped");
+  card.setAttribute("aria-pressed", on);
+}));
+
 /* ===== Copy email + toast ===== */
 function toast(msg) {
   const t = $("#toast");
@@ -252,6 +258,8 @@ const INTENTS = [
     answer: () => "Here's his stack:\n" + Object.entries(SKILLS).map(([k, v]) => `• ${k}: ${v.join(", ")}`).join("\n") },
   { keys: ["educat", "degree", "college", "study", "cdac", "c-dac", "btech", "b.tech", "university", "cgpa"],
     answer: "• PG Diploma in Advanced Computing (PG-DAC), C-DAC ACTS Bengaluru, 2025–2026, 74%\n• B.Tech in Computer Science & Engineering, Chandigarh Group of Colleges, Landran, 2021–2025, CGPA 7.75/10" },
+  { keys: ["hobby", "hobbies", "free time", "fun", "travel", "badminton", "sport", "weekend", "outside work", "interest", "passion", "people", "offline"],
+    answer: "When he logs off, three background processes keep running:\n✈️ Travelling: new places reset his perspective and spark fresh ideas.\n🏸 Badminton: fast reflexes, focus under pressure, and a love for long rallies.\n🤝 Connecting with people: the one process he'd never automate. Some of his best ideas started with a good conversation." },
   { keys: ["contact", "email", "reach", "linkedin", "connect", "talk", "call"],
     answer: "The best way to reach Nishant is by email or LinkedIn.",
     extra: () => `email: ${link("mailto:" + PROFILE.email, PROFILE.email)}\nlinkedin: ${link(PROFILE.linkedin, "linkedin.com/in/nishant-vij")}\ngithub: ${link(PROFILE.github, "github.com/vijnishant")}` },
@@ -328,7 +336,7 @@ function run(raw) {
   streamAnswer(ans, it.extra && it.extra());
 }
 
-const SUGGESTIONS = ["What does he do at CoScale Global?", "How does Nishant use AI?", "Why should we hire him?", "What did he build at Google Home?", "Tell me about his projects", "What's his tech stack?", "How can I contact him?"];
+const SUGGESTIONS = ["What does he do at CoScale Global?", "How does Nishant use AI?", "Why should we hire him?", "What did he build at Google Home?", "Tell me about his projects", "What are his hobbies?", "What's his tech stack?", "How can I contact him?"];
 SUGGESTIONS.forEach(s => {
   const b = document.createElement("button");
   b.textContent = s;

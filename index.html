@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -23,6 +23,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#offline">Beyond Code</a></li>
         <li><a href="#assistant" class="nav-ai">✦ Ask my AI</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -240,9 +241,68 @@
       </div>
     </section>
 
+    <!-- HOBBIES -->
+    <section id="offline" class="section">
+      <h3 class="section-title"><span class="mono">07.</span> Background Processes</h3>
+      <p class="hint reveal">What keeps running when I log off. <span class="mono accent">$ ps --offline</span> · tap a card to open it.</p>
+      <div class="procs">
+        <button class="proc reveal" type="button" aria-pressed="false">
+          <div class="proc-inner">
+            <div class="proc-face front">
+              <div class="proc-bar mono"><span>PID 1024</span><span class="proc-status"><span class="pulse"></span>always running</span></div>
+              <div class="proc-emoji">✈️</div>
+              <h4>Travelling</h4>
+              <code class="mono">wanderlust.service</code>
+              <div class="proc-meter"><span class="mono">curiosity</span><div class="bar"><i style="--w:96%"></i></div></div>
+            </div>
+            <div class="proc-face back">
+              <span class="proc-label mono">// what it does</span>
+              <p>My favourite way to reset my brain. New cities, new food and new people quietly rewrite my default settings, and I come back with ideas I'd never have found at my desk.</p>
+              <span class="proc-out mono">→ output: fresh perspective</span>
+            </div>
+          </div>
+        </button>
+
+        <button class="proc reveal" type="button" aria-pressed="false">
+          <div class="proc-inner">
+            <div class="proc-face front">
+              <div class="proc-bar mono"><span>PID 2048</span><span class="proc-status"><span class="pulse"></span>in a long rally</span></div>
+              <div class="proc-emoji">🏸</div>
+              <h4>Playing Badminton</h4>
+              <code class="mono">while (shuttle.inAir) smash();</code>
+              <div class="proc-meter"><span class="mono">reflexes</span><div class="bar"><i style="--w:90%"></i></div></div>
+            </div>
+            <div class="proc-face back">
+              <span class="proc-label mono">// what it does</span>
+              <p>My real-time system. Split-second decisions, constant footwork and the next shot already planned. It keeps me sharp, competitive and quick on my feet, on the court and at work.</p>
+              <span class="proc-out mono">→ output: focus under pressure</span>
+            </div>
+          </div>
+        </button>
+
+        <button class="proc reveal" type="button" aria-pressed="false">
+          <div class="proc-inner">
+            <div class="proc-face front">
+              <div class="proc-bar mono"><span>PID 4096</span><span class="proc-status"><span class="pulse"></span>accepting connections</span></div>
+              <div class="proc-emoji">🤝</div>
+              <h4>Connecting with People</h4>
+              <code class="mono">network.connect(you)</code>
+              <div class="proc-meter"><span class="mono">conversations</span><div class="bar"><i style="--w:100%"></i></div></div>
+            </div>
+            <div class="proc-face back">
+              <span class="proc-label mono">// what it does</span>
+              <p>The one process I never want to automate. Every conversation is a new input. Some of my best ideas started with a chat that ran way past its timeout.</p>
+              <span class="proc-out mono">→ output: ideas, friends, collaborations</span>
+            </div>
+          </div>
+        </button>
+      </div>
+      <p class="proc-cta reveal mono">Port open: say hi, let's talk badminton, travel or AI. <a href="#contact">connect →</a></p>
+    </section>
+
     <!-- AI ASSISTANT -->
     <section id="assistant" class="section">
-      <h3 class="section-title"><span class="mono">07.</span> Ask my AI assistant</h3>
+      <h3 class="section-title"><span class="mono">08.</span> Ask my AI assistant</h3>
       <p class="hint reveal">Ask about my work in plain English. The assistant runs in your browser and answers only from my résumé. You can also type commands like <code>help</code>.</p>
       <div class="suggest reveal" id="suggest"></div>
       <div class="term reveal" id="term">
@@ -259,7 +319,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section contact">
-      <h3 class="section-title center"><span class="mono">08.</span> Get in touch</h3>
+      <h3 class="section-title center"><span class="mono">09.</span> Get in touch</h3>
       <p class="reveal">I'm open to software engineering roles and interesting projects. My inbox is always open.</p>
       <div class="contact-actions reveal">
         <a class="btn primary" id="mailBtn" href="#">Say hello</a>
@@ -276,6 +336,6 @@
   <footer class="footer mono">Built by Nishant Vij · © <span id="year"></span></footer>
   <div class="toast" id="toast" role="status"></div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
