@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -20,6 +20,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#ai">AI Workflow</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#assistant" class="nav-ai">✦ Ask my AI</a></li>
@@ -111,7 +112,6 @@
           <button role="tab" class="tab active" data-tab="coscale">CoScale Global <span class="now-dot" aria-label="current"></span></button>
           <button role="tab" class="tab" data-tab="rsl">Raja Software Labs</button>
           <button role="tab" class="tab" data-tab="atman">Atman Cloud</button>
-          <button role="tab" class="tab" data-tab="edu">Education</button>
         </div>
 
         <div class="tab-panel active" id="coscale" role="tabpanel">
@@ -154,22 +154,39 @@
           <div class="chips"><span>Salesforce</span><span>Apex</span><span>Android</span><span>Firebase</span><span>JavaScript</span></div>
         </div>
 
-        <div class="tab-panel" id="edu" role="tabpanel">
-          <div class="edu">
-            <h4>PG Diploma in Advanced Computing <span class="accent">@ C-DAC ACTS</span></h4>
-            <p class="meta mono">Aug 2025 – Feb 2026 · Bengaluru · 74%</p>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h3 class="section-title"><span class="mono">04.</span> Education</h3>
+      <div class="edu-timeline">
+        <article class="edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-body">
+            <span class="edu-date mono">Aug 2025 – Feb 2026</span>
+            <h4>PG Diploma in Advanced Computing <span class="accent">(PG-DAC)</span></h4>
+            <p class="edu-school">C-DAC ACTS · Bengaluru, Karnataka</p>
+            <div class="edu-score"><span class="mono">Percentage</span><b>74%</b></div>
+            <div class="chips"><span>Advanced Java</span><span>Data Structures</span><span>Databases</span><span>Web Development</span></div>
           </div>
-          <div class="edu">
-            <h4>B.Tech, Computer Science &amp; Engineering <span class="accent">@ Chandigarh Group of Colleges</span></h4>
-            <p class="meta mono">2021 – 2025 · Landran, Mohali · CGPA 7.75 / 10</p>
+        </article>
+        <article class="edu-card reveal">
+          <div class="edu-icon">🏛️</div>
+          <div class="edu-body">
+            <span class="edu-date mono">2021 – 2025</span>
+            <h4>B.Tech, Computer Science &amp; Engineering</h4>
+            <p class="edu-school">Chandigarh Group of Colleges · Landran, Mohali, Punjab</p>
+            <div class="edu-score"><span class="mono">CGPA</span><b>7.75 / 10</b></div>
+            <div class="chips"><span>Computer Science</span><span>OOP</span><span>DSA</span><span>SDLC</span></div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section">
-      <h3 class="section-title"><span class="mono">04.</span> Skills</h3>
+      <h3 class="section-title"><span class="mono">05.</span> Skills</h3>
       <p class="hint reveal">Pick a category to filter.</p>
       <div class="filters reveal" id="skillFilters"></div>
       <div class="skill-cloud reveal" id="skillCloud"></div>
@@ -177,7 +194,7 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <h3 class="section-title"><span class="mono">05.</span> Things I've built</h3>
+      <h3 class="section-title"><span class="mono">06.</span> Things I've built</h3>
       <div class="projects">
         <article class="project featured reveal" tabindex="0">
           <div class="project-head">
@@ -217,7 +234,7 @@
 
     <!-- AI ASSISTANT -->
     <section id="assistant" class="section">
-      <h3 class="section-title"><span class="mono">06.</span> Ask my AI assistant</h3>
+      <h3 class="section-title"><span class="mono">07.</span> Ask my AI assistant</h3>
       <p class="hint reveal">Ask about my work in plain English. The assistant runs in your browser and answers only from my résumé. You can also type commands like <code>help</code>.</p>
       <div class="suggest reveal" id="suggest"></div>
       <div class="term reveal" id="term">
@@ -234,7 +251,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section contact">
-      <h3 class="section-title center"><span class="mono">07.</span> Get in touch</h3>
+      <h3 class="section-title center"><span class="mono">08.</span> Get in touch</h3>
       <p class="reveal">I'm open to software engineering roles and interesting projects. My inbox is always open.</p>
       <div class="contact-actions reveal">
         <a class="btn primary" id="mailBtn" href="#">Say hello</a>
@@ -251,6 +268,6 @@
   <footer class="footer mono">Built by Nishant Vij · © <span id="year"></span></footer>
   <div class="toast" id="toast" role="status"></div>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

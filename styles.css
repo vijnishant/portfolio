@@ -192,6 +192,23 @@ strong, b { color: var(--text); font-weight: 600; }
 .impact p { color: var(--muted); font-size: .95rem; }
 @media (max-width: 520px) { .impact { flex-direction: column; text-align: center; } }
 
+/* education */
+.edu-timeline { position: relative; display: grid; gap: 22px; padding-left: 34px; }
+.edu-timeline::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--ai)); border-radius: 2px; }
+.edu-card { position: relative; display: flex; gap: 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); transition: transform .25s, border-color .25s; }
+.edu-card::before { content: ""; position: absolute; left: -29px; top: 28px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.edu-card:hover { transform: translateX(6px); border-color: var(--accent); }
+.edu-icon { font-size: 1.8rem; width: 54px; height: 54px; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; background: var(--bg-2); }
+.edu-body { flex: 1; }
+.edu-date { font-size: .78rem; color: var(--accent); }
+.edu-body h4 { font-size: 1.15rem; margin: 2px 0 4px; }
+.edu-school { color: var(--muted); font-size: .92rem; }
+.edu-score { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 12px; padding: 6px 14px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.edu-score .mono { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.edu-score b { color: var(--accent); font-size: 1.1rem; }
+.edu-card .chips { margin-top: 14px; }
+@media (max-width: 520px) { .edu-card { flex-direction: column; } }
+
 /* pipeline */
 .pipeline { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
 .pipe-nodes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; }

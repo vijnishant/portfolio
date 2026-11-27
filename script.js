@@ -18,6 +18,7 @@ const ROLES = [
 
 const SKILLS = {
   "AI & Automation": ["AI Workflow Architecture", "Process Automation", "AI Research", "AI-assisted Development", "AI Code Refactoring", "AI-assisted Debugging", "Test Automation", "CI/CD Pipelines", "Salesforce Flows", "Docker"],
+  "System Design": ["System Design", "High-Level Design (HLD)", "Low-Level Design (LLD)", "Software Architecture", "Design Patterns", "REST API Design", "Database Design", "Scalability"],
   "Languages & DB": ["Java", "C", "C++", "JavaScript", "SQL", "MySQL", "MongoDB"],
   "Backend & Web": ["Spring Boot", "JDBC", "Servlets", "JSP", "REST APIs", "HTTP/HTTPS", "SaaS"],
   "Frontend": ["React.js", "Bootstrap", "Tailwind CSS", "HTML", "CSS"],
@@ -240,6 +241,8 @@ const INTENTS = [
     answer: "• AI Workflow Architect & Research Lead @ CoScale Global (Nov 2026 – Present): automates manual processes with AI workflows, cutting manual effort by 90%, and leads AI research.\n• Software Engineer @ Raja Software Labs, Bengaluru (Feb 2026 – Sep 2026): migrated 40 legacy Java modules to Spring Boot for Google Home, made fixes that were 90% defect-free, brought tests to 90% stability, and cut manual effort 30% with AI tools.\n• Salesforce Developer Intern @ Atman Cloud Consultants, Pune (Jan 2025 – May 2025): earned 250+ Trailhead badges, built an Android app and the Sample Management System." },
   { keys: ["salesforce", "apex", "soql", "lwc", "trailhead", "crm", "flow"],
     answer: "He was a Salesforce Developer Intern at Atman Cloud Consultants and earned 250+ Trailhead badges. He has worked with Sales Cloud, Service Cloud, Apex, SOQL, LWC, and Flows, which is Salesforce's automation tool." },
+  { keys: ["system design", "design", "architecture", "hld", "lld", "scalab", "pattern"],
+    answer: "Nishant works across system design, from high-level design (HLD) to low-level design (LLD), along with design patterns, REST API design and database design. He applied this when he re-architected 40 legacy Java modules into Spring Boot for Google Home, and today he designs end-to-end AI workflow systems at CoScale Global." },
   { keys: ["java", "spring", "backend", "api", "rest", "jdbc", "servlet"],
     answer: "Backend is his core: Java, Spring Boot, JDBC, Servlets, JSP and REST APIs. He migrated 40 legacy Java modules to Spring Boot for Google Home and built the Spring Boot backend for WorkZoo." },
   { keys: ["project", "built", "build", "workzoo", "portfolio", "app", "github"],
